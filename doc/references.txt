@@ -8,11 +8,11 @@ https://github.com/nvim-lua/kickstart.nvim  #used this to help design my repo an
 
 https://github.com/nvim-lualine/lualine.nvim
 
+https://github.com/lukas-reineke/indent-blankline.nvim
 
+https://github.com/sindrets/diffview.nvim       # Not Used yet
 
-
-
-
+https://github.com/phaazon/hop.nvim           # Not Used yet
 
 
 

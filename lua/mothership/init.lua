@@ -7,6 +7,14 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>jt", vim.cmd.NvimTreeToggle)
 
 
+-- Auto-sync Packer
+vim.cmd([[
+	augroup packer_user_config
+	autocmd!
+	autocmd BufWritePost plugins.lua source <afile> | PackerSync
+	augroup end
+]])
+
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -106,7 +114,7 @@ require('lualine').get_config()
 require('lualine').setup{
 	options = { 
 		theme = 'dracula',
-		globalstatus = false,
+		globalstatus = true,
 		sections = {
 			lualine_a = {
 				{
@@ -131,4 +139,15 @@ require('lualine').setup{
 			}
 		}
 	}
+}
+
+-- Indent Blankspace config
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
+vim.opt.listchars:append "eol: "
+
+require("indent_blankline").setup {
+    -- for example, context is off by default, use this to turn it on
+    show_current_context = true,
+    show_current_context_start = true,
 }

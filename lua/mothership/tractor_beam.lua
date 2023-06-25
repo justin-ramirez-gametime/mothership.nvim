@@ -4,52 +4,67 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-
- 
-  -- Telescope.nvim
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
-
-  -- Catppuccin theme
-  use { 
-	  "catppuccin/nvim", 
-	  as = "catppuccin" 
-  }
+	-- Packer can manage itself
+	use 'wbthomason/packer.nvim'
 
 
-  use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+	-- Telescope.nvim
+	use {
+		'nvim-telescope/telescope.nvim', tag = '0.1.1',
+		-- or                            , branch = '0.1.x',
+		requires = { {'nvim-lua/plenary.nvim'} }
+	}
 
-  use ('nvim-treesitter/playground')
+	-- Catppuccin theme
+	use { 
+		"catppuccin/nvim", 
+		as = "catppuccin" 
+	}
 
-  use ('theprimeagen/harpoon')
+	-- Treesitter plugin
+	use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
-  use {
-	  "jiaoshijie/undotree",
-	  config = function()
-		  require('undotree').setup()
-	  end,
-	  requires = {
-		  "nvim-lua/plenary.nvim",
-	  },
-  }
+	--Playground plugin
+	use ('nvim-treesitter/playground')
 
-  use('tpope/vim-fugitive')
+	-- Harpoon plugin
+	use ('theprimeagen/harpoon')
 
-  use {
-	  'nvim-tree/nvim-tree.lua',
-	  requires = {
-		  'nvim-tree/nvim-web-devicons', -- optional
-	  },
-  }
+	-- Undotree plugin and config
+	use {
+		"jiaoshijie/undotree",
+		config = function()
+			require('undotree').setup()
+		end,
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	}
 
-  use {
-	  'nvim-lualine/lualine.nvim',
-	  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
+	--Fugitive plugin
+	use('tpope/vim-fugitive')
+
+	-- Nvim-tree plugin
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons', -- optional
+		},
+	}
+
+	-- Lualine plugin
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+	}
+
+	-- Indent Blankline plugin
+	use ("lukas-reineke/indent-blankline.nvim")
+
+	use {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig"
+	}
 
 end)
