@@ -1,3 +1,25 @@
+require("mothership.tractor_beam")
+require("mothership.autopilot")
+
+-- Set leader
+vim.g.mapleader = " "
+-- Toggle Nvim-Tree
+vim.keymap.set("n", "<leader>jt", vim.cmd.NvimTreeToggle)
+-- Run Sync for Packer
+vim.keymap.set("n", "<leader>jr", vim.cmd.PackerSync)
+
+
+
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+
 -- Catppuccin color scheme
 vim.cmd.colorscheme "catppuccin-macchiato"
 
